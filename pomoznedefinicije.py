@@ -1,3 +1,6 @@
+import time
+
+
 def igralci():
     stevilo_igralcev = input('\nŠtevilo igralcev: ')
     try:
@@ -22,6 +25,7 @@ def igralci():
     else:
         print('Število igralcev mora biti celo število, večje od 0')
         return igralci()
+
 
 def tekme():
     stevilo_tekem = input('\nŠtevilo tekem: ')
@@ -118,7 +122,6 @@ def sestevanje_oklepajev(tuple1, tuple2):
     return (tuple1[0] + tuple2[0], tuple1[1] + tuple2[1])
 
 
-
 def krog(vsi_igralci, vse_tekme, vse_napovedi, vsi_rezultati, lestvica):
     nova_lestvica = {}
     for x in vse_napovedi:
@@ -138,16 +141,15 @@ def zmagovalec_je(slovar):
 	zmagovalec = sorted(sez, key=lambda x: (-x[1][0], x[1][1]))[0][0]
 	return zmagovalec
 
+
 def ali_je_konec(lestvica):
     while True:
         konec = input('\nAli je prvenstvo že zaključeno? (DA, NE): ')
         if konec == 'DA':
             print('\nPrvenstvo je zaključeno. Zmagal je *{}*. \nZa izhod pritisnite tipko X desno zgoraj.'.format(zmagovalec_je(lestvica).upper()))
-            for i in range(10000000000):
-                pass
+            time.sleep(100)
         elif konec == 'NE':
             print('\nLestvica je shranjena. Trenutno vodi *{}*. Se vidimo prihodnjič! \nZa izhod pritisnite tipko X desno zgoraj.'.format(zmagovalec_je(lestvica).upper()))
-            for i in range(10000000000):
-                pass
+            time.sleep(100)
         else:
             print('Napačen vnos. Odgovorite z DA oz. NE.')
