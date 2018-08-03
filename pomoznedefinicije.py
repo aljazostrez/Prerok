@@ -91,7 +91,6 @@ def rezultati(vse_tekme):
                 print('Napačen vnos. Poskusite znova.')
                 continue
             try:
-                ':' in rezultat
                 type(rezultat.index(':') - 1) == int
                 type(rezultat.index(':') + 1) == int
                 a = int(rezultat[rezultat.index(':') - 1])
@@ -146,10 +145,12 @@ def ali_je_konec(lestvica):
     while True:
         konec = input('\nAli je prvenstvo že zaključeno? (DA, NE): ')
         if konec == 'DA':
-            print('\nPrvenstvo je zaključeno. Zmagal je *{}*. \nZa izhod pritisnite tipko X desno zgoraj.'.format(zmagovalec_je(lestvica).upper()))
+            print('\nPrvenstvo je zaključeno. Zmagal je *{}*. \n\
+Za izhod pritisnite tipko X desno zgoraj.'.format(zmagovalec_je(lestvica).upper()))
             time.sleep(100)
         elif konec == 'NE':
-            print('\nLestvica je shranjena. Trenutno vodi *{}*. Se vidimo prihodnjič! \nZa izhod pritisnite tipko X desno zgoraj.'.format(zmagovalec_je(lestvica).upper()))
+            print('\nLestvica je shranjena. Trenutno vodi *{}*. Se vidimo prihodnjič!\n\
+Za izhod pritisnite tipko X desno zgoraj.'.format(zmagovalec_je(lestvica).upper()))
             time.sleep(100)
         else:
             print('Napačen vnos. Odgovorite z DA oz. NE.')

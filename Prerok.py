@@ -1,7 +1,9 @@
 from pomoznedefinicije import *
 import ast
 
-print('Dobrodošli v programu *Prerok*. Uporablja se za točkovanje uspešnosti napovedi.\nProgram vas bo sam vodil skozi celotno točkovanje.\nČe se zmotite in potrdite izbiro, zaprite program in na novo začnite.')
+print('Dobrodošli v programu *Prerok*. Uporablja se za točkovanje uspešnosti napovedi.\n\
+Program vas bo sam vodil skozi celotno točkovanje.\n\
+Če se zmotite in potrdite izbiro, zaprite program in na novo začnite.')
 while True:
     zacetek = input('\nAli je to novo prvenstvo? (DA, NE): ')
     if zacetek == 'DA':
@@ -14,7 +16,8 @@ while True:
         for igralec in vsi_igralci:
             lestvica[igralec] = (0, 0)
         nova_lestvica = krog(vsi_igralci, vse_tekme, vse_napovedi, vsi_rezultati, lestvica)
-        ime = input('\nKako naj bo ime datoteki, kjer bo shranjena lestvica?\nTaka datoteka še ne sme obstajati. \nDatoteka: ')
+        ime = input('\nKako naj bo ime datoteki, kjer bo shranjena lestvica?\n\
+Taka datoteka še ne sme obstajati. \nDatoteka: ')
         with open(ime, 'w') as dat:
             dat.write(' '.join(vsi_igralci) + '\n')
             dat.write(str(nova_lestvica))
@@ -29,7 +32,8 @@ while True:
                     lestvica = ast.literal_eval(dat.readline())
                 done = True
             except FileNotFoundError:
-                print('Datoteka ne obstaja. Še enkrat vpišite ime datoteke.\nČe je to novo prvenstvo, zaprite okno in znova zaženite program.')
+                print('Datoteka ne obstaja. Še enkrat vpišite ime datoteke.\n\
+Če je to novo prvenstvo, zaprite okno in znova zaženite program.')
         vse_tekme = tekme()
         vse_napovedi = napovedi(vsi_igralci, vse_tekme)
         vsi_rezultati = rezultati(vse_tekme)
